@@ -12,7 +12,6 @@ import { HeartRateSensor } from "heart-rate";
 
 /*  TODO:
  *    Make run not done
- *    Restart the current Run (Ég get opnað og lokað þannig þetta er í raun óþarfi)
  *    
  *
  *  Done:
@@ -22,10 +21,12 @@ import { HeartRateSensor } from "heart-rate";
  *    Show clock
  *    Show heartrate
  *    Hop forward/back 1 min
+ *    Show popup when exercise is reattempted
  *
  *
  *  Skiped:
- *    Hop forward to next part of excersise (hægt væri að gera þetta með því að ýta oft á hoppa )
+ *    Skip forward to next part of excersise (hægt væri að gera þetta með því að ýta oft á hoppa )
+ *    Restart the current Run (Ég get opnað og lokað þannig þetta er í raun óþarfi)
  *    
 */
 
@@ -139,7 +140,10 @@ let pauseButton = document.getElementById("btn-pause");
 let skipBackButton = document.getElementById("btn-back");
 let skipForwardButton = document.getElementById("btn-forward");
 
-
+// Popup elements
+let myPopup = document.getElementById("my-popup");
+let popupLeft = myPopup.getElementById("btnLeft");
+let popupRight = myPopup.getElementById("btnRight");
 
 
 // Set some string constants
@@ -181,13 +185,31 @@ tiles.forEach((element, index) => {
   let touch = element.getElementById("touch-me");
   if (runsCompleted[element.id]) {
     element.getElementById("list-icon").href = "check.png";
+    touch.onclick = (evt) => {
+      myPopup.style.display = "inline";
+      myPopup.tag = element.id;
+    }
+  } else {
+    // When a tile is clicked warm up is started
+    touch.onclick = (evt) => {
+      list.style.display = "none";
+      startWarmUp(runTimes[element.id]);
+    }
   }
-  // When a tile is clicked warm up is started
-  touch.onclick = (evt) => {
-    list.style.display = "none";
-    startWarmUp(runTimes[element.id]);
-  }
+  
 });
+
+// Button on the popup that just closed the popup
+popupLeft.onclick = function(evt) {
+  myPopup.style.display = "none";
+}
+
+// Button on the popup that starts the workout
+popupRight.onclick = function(evt) {
+  myPopup.style.display = "none";
+  list.style.display = "none";
+  startWarmUp(runTimes[myPopup.tag]);
+}
 
 // When the return button is clicked
 returnButton.onactivate = function(evt) {
