@@ -1,0 +1,119 @@
+<svg>
+  <!-- TOP RIGHT -->
+  <use id="btn-return" href="#combo-button-upper-right" fill="fb-red" display="none">
+    <set href="combo-button-icon" attributeName="href" to="return.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="return_press.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  <!-- BOTTOM RIGHT -->
+  <use id="btn-play" href="#combo-button-lower-right" fill="fb-peach" display="none">
+    <set href="combo-button-icon" attributeName="href" to="play.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="play_press.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  <use id="btn-pause" href="#combo-button-lower-right" fill="fb-peach" display="none">
+    <set href="combo-button-icon" attributeName="href" to="pause.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="pause_press.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  <!-- BOTTOM LEFT -->
+  <use id="btn-back" href="#combo-button-lower-left" fill="fb-white" display="none">
+    <set href="combo-button-icon" attributeName="href" to="skip_back.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="skip_back_press.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  <!-- TOP LEFT -->
+  <use id="btn-forward" href="#combo-button-upper-left" fill="fb-white" display="none">
+    <set href="combo-button-icon" attributeName="href" to="skip_forward.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="skip_forward_press.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  <defs>
+    <symbol id="my-tile-item" href="#tile-list-item" focusable="false"
+            pointer-events="none" system-events="all">
+      <text id="text" />
+      <rect id="tile-divider-bottom" class="tile-divider-bottom" />
+      <rect id="touch-me" pointer-events="all" x="0" y="0" width="100%"
+            height="100%-2" opacity="0" />
+      <image id="list-icon" class="list-icon" href="square.png" />
+    </symbol>
+  </defs>
+  <use id="my-list" href="#tile-list">
+    <var id="reorder-enabled" value="0" />
+    <var id="align-mode" value="1" />
+    <var id="separator-height-bottom" value="2" />
+    
+    <use href="#my-tile-item" class="tile-list-item" id="v8d1" >
+      <set href="text" attributeName="text-buffer" to="Vika 8 Dagur 1" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v8d2" >
+      <set href="text" attributeName="text-buffer" to="Vika 8 Dagur 2" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v8d3" >
+      <set href="text" attributeName="text-buffer" to="Vika 8 Dagur 3" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v9d1" >
+      <set href="text" attributeName="text-buffer" to="Vika 9 Dagur 1" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v9d2" >
+      <set href="text" attributeName="text-buffer" to="Vika 9 Dagur 2" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v9d3" >
+      <set href="text" attributeName="text-buffer" to="Vika 9 Dagur 3" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v10d1" >
+      <set href="text" attributeName="text-buffer" to="Vika 10 Dagur 1" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v10d2" >
+      <set href="text" attributeName="text-buffer" to="Vika 10 Dagur 2" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v10d3" >
+      <set href="text" attributeName="text-buffer" to="Vika 10 Dagur 3" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v11d1" >
+      <set href="text" attributeName="text-buffer" to="Vika 11 Dagur 1" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v11d2" >
+      <set href="text" attributeName="text-buffer" to="Vika 11 Dagur 2" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v11d3" >
+      <set href="text" attributeName="text-buffer" to="Vika 11 Dagur 3" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v12d1" >
+      <set href="text" attributeName="text-buffer" to="Vika 12 Dagur 1" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v12d2" >
+      <set href="text" attributeName="text-buffer" to="Vika 12 Dagur 2" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v12d3" >
+      <set href="text" attributeName="text-buffer" to="Vika 12 Dagur 3" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v13d1" >
+      <set href="text" attributeName="text-buffer" to="Vika 13 Dagur 1" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v13d2" >
+      <set href="text" attributeName="text-buffer" to="Vika 13 Dagur 2" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v13d3" >
+      <set href="text" attributeName="text-buffer" to="Vika 13 Dagur 3" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v14d1" >
+      <set href="text" attributeName="text-buffer" to="Vika 14 Dagur 1" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v14d2" >
+      <set href="text" attributeName="text-buffer" to="Vika 14 Dagur 2" />
+    </use>
+    <use href="#my-tile-item" class="tile-list-item" id="v14d3" >
+      <set href="text" attributeName="text-buffer" to="Vika 14 Dagur 3" />
+    </use>
+    
+  </use>
+  <text id="stopWatch" />
+  <text id="typeOfRun" />
+  <text id="repitions" />
+  <text id="finish">Búið</text>
+  
+  <text id="clockLabel" />
+  <text id="heartRate" />
+  <image id="heartRate-image" href="heartrate.png" />
+</svg>

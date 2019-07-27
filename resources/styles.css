@@ -1,0 +1,100 @@
+.list-icon {
+  width: 60;
+  height: 60;
+  x: 75%;
+  y: 40%;
+}
+
+#clockLabel {
+  font-size: 30;
+  text-length: 40;
+  text-anchor: middle;
+  fill: white;
+  x: 50%;
+  y: 10%
+}
+
+#heartRate {
+  font-size: 21;
+  text-length: 10;
+  text-anchor: end;
+  fill: white;
+  x: 49%;
+  y: 97%
+}
+
+#heartRate-image {
+  width: 28;
+  height: 28;
+  text-anchor: start;
+  x: 49%;
+  y: 90%;
+  
+}
+
+.defaultText {
+  font-size: 32;
+  font-family: System-Regular;
+  font-weight: regular;
+  text-length: 32;
+}
+
+.tile-list-item {
+  height: 100%;
+}
+
+.tile-list-item text {
+  height: 50;
+  font-size: 50;
+  font-family: Tungsten-Medium;
+  fill: "white";
+}
+
+#stopWatch {
+  font-size: 90;
+  text-length: 40;
+  text-anchor: middle;
+  x: 50%;
+  y: 50%+20;
+  fill: white;
+}
+
+.pause-play {
+  y: 55%;
+  x: 25%;
+  width: 50%;
+  height: 50%;
+  visibility: hidden;
+}
+
+.pause-play-button {
+  y: 55%;
+}
+
+#typeOfRun {
+  font-size: 30;
+  text-length: 40;
+  text-anchor: middle;
+  x: 50%;
+  y: 31%;
+  fill: white;
+}
+
+#finish {
+  font-size: 140;
+  text-length: 40;
+  text-anchor: middle;
+  x: 53%;
+  y: 65%;
+  fill: white;
+  display: none;
+}
+
+#repitions {
+  font-size: 15;
+  text-length: 40;
+  text-anchor: middle;
+  x: 50%;
+  y: 22%;
+  fill: white;
+}

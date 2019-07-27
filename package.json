@@ -1,0 +1,24 @@
+{
+  "fitbit": {
+    "appUUID": "bad688c4-5f61-4d64-bfd1-304064ec22c6",
+    "appType": "app",
+    "appDisplayName": "Hlaup",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#4caf50",
+    "requestedPermissions": [
+      "access_heart_rate"
+    ],
+    "buildTargets": [
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "Hlaup"
+      }
+    },
+    "defaultLanguage": "en-US"
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~3.1.0"
+  }
+}
