@@ -11,8 +11,8 @@ import { HeartRateSensor } from "heart-rate";
 
 
 /*  TODO:
- *    Make run not done
- *    
+ *    Open up on next unfinished run
+ *    When skipping back make activity go back into last excersise part
  *
  *  Done:
  *    Leave to excersise page
@@ -22,6 +22,7 @@ import { HeartRateSensor } from "heart-rate";
  *    Show heartrate
  *    Hop forward/back 1 min
  *    Show popup when exercise is reattempted
+ *    Make run not done
  *
  *
  *  Skiped:
@@ -111,7 +112,7 @@ try {
 
 
 // Write the times into a file
-function writeTimesToFile() {
+function writeToFile() {
   fs.writeFileSync("db.txt", runsCompleted, "json");
 }
 
@@ -179,22 +180,33 @@ if (HeartRateSensor) {
    console.log("This device does NOT have a HeartRateSensor!");
 }
 
+function makeTileFinished(element) {
+  let touch = element.getElementById("touch-me");
+  element.getElementById("list-icon").href = "check.png";
+  touch.onclick = (evt) => {
+    myPopup.style.display = "inline";
+    myPopup.tag = element.id;
+  }
+}
+
+function makeTileNotFinished(element) {
+  let touch = element.getElementById("touch-me");
+  element.getElementById("list-icon").href = "square.png";
+  touch.onclick = (evt) => {
+    list.style.display = "none";
+    startWarmUp(runTimes[element.id]);
+  }
+}
+
 
 // Go through all the tiles and set the checkbox icon if run is done and create onclick event 
 tiles.forEach((element, index) => {
   let touch = element.getElementById("touch-me");
   if (runsCompleted[element.id]) {
-    element.getElementById("list-icon").href = "check.png";
-    touch.onclick = (evt) => {
-      myPopup.style.display = "inline";
-      myPopup.tag = element.id;
-    }
+    makeTileFinished(element);
   } else {
     // When a tile is clicked warm up is started
-    touch.onclick = (evt) => {
-      list.style.display = "none";
-      startWarmUp(runTimes[element.id]);
-    }
+    makeTileNotFinished(element);
   }
   
 });
@@ -207,8 +219,19 @@ popupLeft.onclick = function(evt) {
 // Button on the popup that starts the workout
 popupRight.onclick = function(evt) {
   myPopup.style.display = "none";
-  list.style.display = "none";
-  startWarmUp(runTimes[myPopup.tag]);
+  removeFinishedExcersise(myPopup.tag);
+}
+// Remove a finished excersise from the db
+function removeFinishedExcersise(eID) {
+  console.log(eID);
+  runsCompleted[eID] = false;
+  writeToFile();
+  // Make checkbox square for current run that is being removed
+  tiles.forEach((element, index) => { 
+    if (element.id === eID) {
+      makeTileNotFinished(element);
+    }
+  });
 }
 
 // When the return button is clicked
@@ -369,7 +392,7 @@ function finishUpAfterCooldown(currentRunTimes) {
   vibration.start("confirmation");
   // Write to file that this run is finished
   runsCompleted[currentRunTimes.id] = true;
-  writeTimesToFile();
+  writeToFile();
   // Hide the stop watch and type of run text
   showStopwatch = false;
   typeOfRun.text = '';
@@ -378,7 +401,7 @@ function finishUpAfterCooldown(currentRunTimes) {
   // Make checkbox for current run checked if return is clicked
   tiles.forEach((element, index) => { 
     if (element.id === currentRunTimes.id) {
-      element.getElementById("list-icon").href = "check.png";
+      makeTileFinished(element);
     }
   });
 }
